@@ -10,6 +10,7 @@ This project will require you to write API code, wrap your applications in light
 
 * **Project Type:** Pair Project
 * **Due Date:** Friday, July 24, 2026
+* **Contributor:** Dhruv & Quang
 
 ---
 
