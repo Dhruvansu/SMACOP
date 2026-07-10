@@ -42,6 +42,7 @@ def get_db_connection():
             sslmode="require" if DB_AUTH_MODE == "azure-ad" else "prefer",
             connect_timeout=5 # 5 seconds connection timeout
         )
+        _ensure_table_exists()
         logger.info("Database connection successfully established")
         return conn
     except psycopg2.OperationalError as e:
@@ -72,7 +73,7 @@ def _ensure_table_exists():
         if connection: connection.close()
 
 #Create a user to register
-def _hash_password(self, password: str) -> str:
+def _hash_password(password: str) -> str:
     return hashlib.sha256(password.encode('utf-8')).hexdigest()
 
 def create_user(username: str, password: str):
