@@ -2,6 +2,7 @@
 
 def authenticate():
     # Authenticate the python automation script with azure using service principal
+    # Can be skipped in run manually from local machine
     pass
 
 def create_resource_group():
@@ -37,9 +38,6 @@ def create_private_endpoint():
     # Create the DNS zone group between DNS zone and private endpoint to opt-in to Azure's automatic DNS management
     pass
 
-def create_azure_monitor():
-    pass
-
 def create_log_analytics_workspace():
     pass
 
@@ -65,10 +63,13 @@ def start_deployment():
     # 1. Authenticate the script
     # 2. Deploy container app to Azure Web App
     # 3. Provision monitoring resources
+        # Set up 
+        # Set up Grafana to query from LAW using KQL
     # =========================================
 
-    # 1. 
-    authenticate()
+    # 1.
+    # For simplicity, perform manually with az login 
+    # authenticate()
 
     # 2.
     # create_resource_group()
@@ -80,4 +81,11 @@ def start_deployment():
     # create_private_endpoint() for the azure web app
 
     # 3. 
+    # create_resource_group()
+    # create_log_analytics_workspace()
+    # create_application_insights(), 
+        # for app telemetry, utilize SDK in code  
+        # for connection string injection, enable in web app settings
+    # configure_diagnostics_settings() (for platform logs)
+    
     pass
