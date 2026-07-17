@@ -72,6 +72,7 @@ def register():
 def login():
     pass
 
+# protected by jwt
 @app.get("/login-check")
 def login_check():
     pass

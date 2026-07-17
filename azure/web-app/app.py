@@ -23,7 +23,7 @@ async def log_request_execution_latency(request: Request, call_next):
 
 @app.get("/")
 def read_root():
-    return{
+    return {
         "status": "Web App Online",
         "description": "lorem Ipsum"
     }
