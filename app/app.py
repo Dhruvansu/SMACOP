@@ -169,6 +169,7 @@ async def login(payload: AuthPayload):
     except InvalidCredentialsError as e:
         return HTTPException(status_code=401, detail=str(e))
 
+# protected by jwt
 @app.get("/login-check")
 def login_check(username: str = Depends(decode_and_verify_token)):
     return {"message": f"Hello {username}, you're authenticated"}
