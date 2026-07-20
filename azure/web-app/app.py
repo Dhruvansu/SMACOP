@@ -1,12 +1,18 @@
 import os
 import time
 import logging
+
+from azure.monitor.opentelemetry import configure_azure_monitor
+
+configure_azure_monitor()
+
 from fastapi import FastAPI, Request, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
 # Configure logger
-logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
+# logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger("web-app")
+logger.setLevel(logging.INFO)
 
 app = FastAPI(title="SRE Demo")
 
@@ -25,7 +31,7 @@ async def log_request_execution_latency(request: Request, call_next):
 def read_root():
     return {
         "status": "Web App Online",
-        "description": "lorem Ipsum"
+        "description": "with OpenTelemetry and App Insights!"
     }
 
 @app.get("/health")
